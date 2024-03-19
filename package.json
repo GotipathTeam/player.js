@@ -1,0 +1,41 @@
+{
+  "name": "@gotipath/player",
+  "version": "0.0.01",
+  "description": "Interact with and control an embedded Gotipath Stream Player.",
+  "author": "Gotipath <https://www.gotipath.com>",
+  "license": "MIT",
+  "main": "dist/player.js",
+  "module": "dist/player.es.js",
+  "jsnext:main": "dist/player.es.js",
+  "type": "module",
+  "directories": {
+    "lib": "src/"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "rollup --config",
+    "watch": "rollup --config --watch"
+  },
+  "repository": "vimeo/player.js",
+  "keywords": [
+    "player",
+    "playerjs",
+    "media",
+    "video"
+  ],
+  "devDependencies": {
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "esbuild": "0.20.1",
+    "rollup": "^4.13.0"
+  },
+  "dependencies": {
+    "@vimeo/player": "^2.22.0",
+    "player.js": "^0.1.0",
+    "rollup-plugin-esbuild": "^6.1.1"
+  }
+}
