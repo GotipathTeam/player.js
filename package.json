@@ -1,6 +1,6 @@
 {
   "name": "@gotipath/player",
-  "version": "0.0.01",
+  "version": "0.0.1",
   "description": "Interact with and control an embedded Gotipath Stream Player.",
   "author": "Gotipath <https://www.gotipath.com>",
   "license": "MIT",
@@ -20,7 +20,10 @@
     "build": "rollup --config",
     "watch": "rollup --config --watch"
   },
-  "repository": "vimeo/player.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GotipathTeam/player.js.git"
+  },
   "keywords": [
     "player",
     "playerjs",
@@ -31,11 +34,8 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-terser": "^0.4.4",
     "esbuild": "0.20.1",
-    "rollup": "^4.13.0"
-  },
-  "dependencies": {
-    "@vimeo/player": "^2.22.0",
-    "player.js": "^0.1.0",
+    "rollup": "^4.13.0",
     "rollup-plugin-esbuild": "^6.1.1"
-  }
+  },
+  "dependencies": {}
 }
