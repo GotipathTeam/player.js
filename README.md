@@ -14,7 +14,7 @@ npm install @gotipath/player
 Alternatively, you can reference an up‐to‐date version on our CDN:
 
 ```html
-<script src="https://player.Gotipath.com/api/player.js"></script>
+<script src="https://player.gotipath.com/api/player.js"></script>
 ```
 
 **Warning:** when used with RequireJS it's required to load the script dynamically via the RequireJS load system.
@@ -31,9 +31,9 @@ Already have a player on the page? Pass the element to the `Gotipath.Player`
 constructor and you’re ready to go.
 
 ```html
-<iframe src="https://player.Gotipath.com/video/76979871?h=8272103f6e" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+<iframe src="https://player.gotipath.com/video/76979871?h=8272103f6e" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
 
-<script src="https://player.Gotipath.com/api/player.js"></script>
+<script src="https://player.gotipath.com/api/player.js"></script>
 <script>
     const iframe = document.querySelector('iframe');
     const player = new Gotipath.Player(iframe);
@@ -59,7 +59,7 @@ element and the video id or Gotipath.com url (and optional
 ```html
 <div id="made-in-ny"></div>
 
-<script src="https://player.Gotipath.com/api/player.js"></script>
+<script src="https://player.gotipath.com/api/player.js"></script>
 <script>
     const options = {
         id: 59777392,
@@ -89,9 +89,9 @@ prefixed with `data-Gotipath` (`data-Gotipath-portrait="false"`, for example).
 
 ```html
 <div data-Gotipath-id="19231868" data-Gotipath-width="640" id="handstick"></div>
-<div data-Gotipath-url="https://player.Gotipath.com/video/76979871?h=8272103f6e" id="playertwo"></div>
+<div data-Gotipath-url="https://player.gotipath.com/video/76979871?h=8272103f6e" id="playertwo"></div>
 
-<script src="https://player.Gotipath.com/api/player.js"></script>
+<script src="https://player.gotipath.com/api/player.js"></script>
 <script>
     // If you want to control the embeds, you’ll need to create a Player object.
     // You can pass either the `<div>` or the `<iframe>` created inside the div.
@@ -140,10 +140,10 @@ Similarly, if you’re using [RequireJS](http://www.requirejs.org) in the browse
 it will also import the Player constructor directly:
 
 ```html
-<iframe src="https://player.Gotipath.com/video/76979871?h=8272103f6e" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+<iframe src="https://player.gotipath.com/video/76979871?h=8272103f6e" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
 
 <script>
-    require(['https://player.Gotipath.com/api/player.js'], function (Player) {
+    require(['https://player.gotipath.com/api/player.js'], function (Player) {
         const iframe = document.querySelector('iframe');
         const player = new Player(iframe);
 
@@ -289,7 +289,7 @@ an embed inside that element. The options object should consist of either an
 ```html
 <div id="made-in-ny"></div>
 
-<script src="https://player.Gotipath.com/api/player.js"></script>
+<script src="https://player.gotipath.com/api/player.js"></script>
 <script>
     const options = {
         id: 59777392,
@@ -298,7 +298,7 @@ an embed inside that element. The options object should consist of either an
     };
 
     // Will create inside the made-in-ny div:
-    // <iframe src="https://player.Gotipath.com/video/59777392?h=ab882a04fd&loop=1" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+    // <iframe src="https://player.gotipath.com/video/59777392?h=ab882a04fd&loop=1" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
     const madeInNy = new Gotipath.Player('made-in-ny', options);
 </script>
 ```
@@ -319,7 +319,7 @@ lightbox opened from clicking on a thumbnail, for example).
 <div data-Gotipath-id="59777392" data-Gotipath-defer id="made-in-ny"></div>
 <div data-Gotipath-id="19231868" data-Gotipath-defer data-Gotipath-width="500" id="handstick"></div>
 
-<script src="https://player.Gotipath.com/api/player.js"></script>
+<script src="https://player.gotipath.com/api/player.js"></script>
 <script>
     const options = {
         width: 640,
@@ -327,11 +327,11 @@ lightbox opened from clicking on a thumbnail, for example).
     };
 
     // Will create inside the made-in-ny div:
-    // <iframe src="https://player.Gotipath.com/video/59777392?h=ab882a04fd&loop=1" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+    // <iframe src="https://player.gotipath.com/video/59777392?h=ab882a04fd&loop=1" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
     const madeInNy = new Gotipath.Player('made-in-ny', options);
 
     // Will create inside the handstick div:
-    // <iframe src="https://player.Gotipath.com/video/19231868?h=1034d5269b&loop=1" width="500" height="281" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+    // <iframe src="https://player.gotipath.com/video/19231868?h=1034d5269b&loop=1" width="500" height="281" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
     const handstick = new Gotipath.Player(document.getElementById('handstick'), options);
 </script>
 ```
@@ -339,7 +339,7 @@ lightbox opened from clicking on a thumbnail, for example).
 ## Embed Options
 
 These options are available to be appended to the query string of the player URL, used as `data-Gotipath-` attributes on elements, or included as
-an object passed to the `Gotipath.Player` constructor. The complete list of embed options can be found in our [official SDK documentation](https://developer.Gotipath.com/player/sdk/embed).
+an object passed to the `Gotipath.Player` constructor. The complete list of embed options can be found in our [official SDK documentation](https://developer.gotipath.com/player/sdk/embed).
 
 ## Methods
 
