@@ -28,7 +28,7 @@ Already have a player on the page? Pass the element to the `Gotipath.Player`
 constructor and you’re ready to go.
 
 ```html
-<iframe src="https://player.gotipath.com/video/76979871?h=8272103f6e" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+<iframe src="https://player.gotipath.com/stream/libraryId/default/VideoId" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
 
 <script src="https://player.gotipath.com/api/player.js"></script>
 <script>
