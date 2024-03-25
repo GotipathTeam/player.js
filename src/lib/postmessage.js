@@ -37,7 +37,7 @@ export function postMessage(player, method, params) {
     message.data = params
   }
   var data = JSON.stringify(message)
-  player.element.contentWindow.postMessage(data, 'http://player.test')
+  player.element.contentWindow.postMessage(data, 'https://player.gotipath.com')
 }
 
 export function processData(player, data) {
