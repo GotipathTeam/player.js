@@ -1,12 +1,12 @@
-// rollup.config.mjs
 import json from '@rollup/plugin-json'
 import terser from '@rollup/plugin-terser'
-
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 export default async function ({ watch }) {
   const builds = []
   builds.push({
     input: ['src/index.js'],
-    plugins: [json()],
+    plugins: [json(), nodeResolve()],
+    external: ['lodash'],
     output: [
       {
         dir: 'dist/',
@@ -28,10 +28,9 @@ export default async function ({ watch }) {
     output: {
       file: 'dist/player.js',
       format: 'umd',
-      esModule: false,
-      name: 'idb',
+      sourcemapFile: 'dist/player.js.map',
+      name: 'Gotipath.Player',
     },
   })
-
   return builds
 }

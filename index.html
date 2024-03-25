@@ -4,8 +4,92 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .iframe_container {
+        background-color: black;
+        height: 480px;
+        width: 812px;
+      }
+    </style>
   </head>
   <body>
+    <div class="iframe_container">
+      <div
+        style="
+          position: relative;
+          padding-bottom: 56.25%;
+          height: 0;
+          overflow: hidden;
+        "
+      >
+        <iframe
+          src="http://player.test/stream/c94deedf-edbc-49aa-8805-8f199c017ff5/default/e3b48a11-ceaf-4272-9caa-ddb5138cf938?autoplay=true&preload=true&loop=true&muted=true"
+          style="
+            border: none;
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 100%;
+          "
+          allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+          allowfullscreen="true"
+          loading="lazy"
+          webkitallowfullscreen="true"
+          mozallowfullscreen="true"
+        >
+          >
+        </iframe>
+      </div>
+    </div>
+    <button id="setCurrentTime">Set Current Time</button>
+    <button id="play">Play</button>
+    <button id="pause">Pause</button>
+    <button id="seek">Seek</button>
+    <button id="setVolume">Set Volume</button>
+    <button id="getVolume">Get Volume</button>
+
     <script src="/dist/player.js"></script>
+    <script>
+      const iframe = document.querySelector('iframe')
+      const player = new Gotipath.Player(iframe)
+      // native events
+      player.on('ready', function () {
+        console.log('player is ready!')
+      })
+      player.on('play', function () {
+        console.log('played the video!')
+      })
+      player.on('pause', function () {
+        console.log('paused the video!')
+      })
+      player.on('ended', function () {
+        console.log('ended the video!')
+      })
+      player.on('timeupdate', function (currentTime) {
+        console.log('current time:', currentTime)
+      })
+      player.on('seeked', function (currentTime) {
+        console.log('seeked to:', currentTime)
+      })
+      player.on('volumechange', function (volume) {
+        console.log('volume changed to:', volume)
+      })
+
+      var btn = document.getElementById('setCurrentTime')
+      var playBtn = document.getElementById('play')
+      var pauseBtn = document.getElementById('pause')
+
+      playBtn.addEventListener('click', function () {
+        player.play()
+      })
+
+      pauseBtn.addEventListener('click', function () {
+        player.pause()
+      })
+
+      btn.addEventListener('click', function () {
+        player.setCurrentTime(3)
+      })
+    </script>
   </body>
 </html>
