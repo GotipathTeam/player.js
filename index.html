@@ -23,7 +23,8 @@
         "
       >
         <iframe
-          src="http://player.test/stream/c94deedf-edbc-49aa-8805-8f199c017ff5/default/e3b48a11-ceaf-4272-9caa-ddb5138cf938?autoplay=true&preload=true&loop=true&muted=true"
+          id="player"
+          src="http://localhost:8080"
           style="
             border: none;
             position: absolute;
@@ -44,35 +45,37 @@
     <button id="setCurrentTime">Set Current Time</button>
     <button id="play">Play</button>
     <button id="pause">Pause</button>
-    <button id="seek">Seek</button>
-    <button id="setVolume">Set Volume</button>
-    <button id="getVolume">Get Volume</button>
+    <!-- mute -->
+    <button id="mute">Mute</button>
+    <button id="unmute">Unmute</button>
 
     <script src="/dist/player.js"></script>
     <script>
-      const iframe = document.querySelector('iframe')
+      const iframe = document.querySelector('#player')
       const player = new Gotipath.Player(iframe)
       // native events
       player.on('ready', function () {
+        player.setCurrentTime(200)
         console.log('player is ready!')
       })
-      player.on('play', function () {
+
+      player.on('play', function (e) {
         console.log('played the video!')
       })
-      player.on('pause', function () {
+
+      player.on('pause', function (e) {
         console.log('paused the video!')
       })
-      player.on('ended', function () {
-        console.log('ended the video!')
+      player.on('ended', function (e) {
+        console.log('ended the video!', e)
       })
-      player.on('timeupdate', function (currentTime) {
-        console.log('current time:', currentTime)
+
+      player.on('timeupdate', function (e) {
+        console.log('current time:', e)
       })
-      player.on('seeked', function (currentTime) {
-        console.log('seeked to:', currentTime)
-      })
-      player.on('volumechange', function (volume) {
-        console.log('volume changed to:', volume)
+
+      player.on('volumechange', function (e) {
+        console.log('volume changed to:', e)
       })
 
       var btn = document.getElementById('setCurrentTime')
@@ -88,7 +91,18 @@
       })
 
       btn.addEventListener('click', function () {
-        player.setCurrentTime(3)
+        player.setCurrentTime(200)
+      })
+
+      var muteBtn = document.getElementById('mute')
+      var unmuteBtn = document.getElementById('unmute')
+
+      muteBtn.addEventListener('click', function () {
+        player.mute()
+      })
+
+      unmuteBtn.addEventListener('click', function () {
+        player.unmute()
       })
     </script>
   </body>

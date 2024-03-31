@@ -1,4 +1,5 @@
-import { getCallbacks } from './callbacks'
+import { getCallbacks, removeCallback, shiftCallbacks } from './callbacks'
+
 export function parseMessageData(data) {
   if (typeof data === 'string') {
     try {
@@ -36,14 +37,24 @@ export function postMessage(player, method, params) {
   if (params !== undefined) {
     message.data = params
   }
+
   var data = JSON.stringify(message)
-  player.element.contentWindow.postMessage(data, 'https://player.gotipath.com')
+  console.log('data', data)
+  player.element.contentWindow.postMessage(data, player.origin)
 }
 
 export function processData(player, data) {
-  data = parseMessageData(data)
-  if (!data || !data.event) {
+  var callbacks = getCallbacks(player, `event:${data.event}`)
+  if (callbacks.length === 0) {
     return
   }
-  let callbacks = []
+  callbacks.forEach((callback) => {
+    if (typeof callback === 'function') {
+      if (data.data) {
+        callback(data.data)
+      } else {
+        callback()
+      }
+    }
+  })
 }
